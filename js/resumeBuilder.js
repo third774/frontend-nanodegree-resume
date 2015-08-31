@@ -90,6 +90,29 @@ var education = {
     ]
 };
 
+education.display = function() {
+	console.log("education.display() TEST");	
+	if (education.Schools.length > 0) {
+		for (var i = 0; i < education.Schools.length; i++) {
+			var formatted_HTMLschoolStart = HTMLschoolStart;
+			var formatted_HTMLschoolName = HTMLschoolName.replace("%data%", education.Schools[i].name);
+			var formatted_HTMLschoolDegree = HTMLschoolDegree.replace("%data%", education.Schools[i].degree);
+			var formatted_HTMLschoolDates = HTMLschoolDates.replace("%data%", education.Schools[i].dates);
+			var formatted_HTMLschoolLocation = HTMLschoolLocation.replace("%data%", education.Schools[i].location);
+			
+			$("#education").append(formatted_HTMLschoolStart)
+			$(".education-entry:last").append(formatted_HTMLschoolName + formatted_HTMLschoolDegree + formatted_HTMLschoolDates + formatted_HTMLschoolLocation);
+
+			for (each in education.Schools[i].majors) {
+				var formatted_HTMLschoolMajor = HTMLschoolMajor.replace("%data%", education.Schools[i].majors[each]);
+				$(".education-entry:last").append(formatted_HTMLschoolMajor)
+			}
+		}
+	} else {
+		console.log("No Schools!");
+	}
+}
+
 var work = {
 	"jobs" : [
 		{
@@ -209,6 +232,7 @@ work.display = function() {
 displayHeader();
 work.display();
 projects.display();
+education.display();
 
 $("#main").append(internationalizeButton);
 
