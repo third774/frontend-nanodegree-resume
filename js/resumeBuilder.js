@@ -132,6 +132,22 @@ var work = {
 	]
 };
 
+work.display = function() {
+	if (work.jobs.length > 0) {
+		for (job in work.jobs) {
+			var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+			var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+			var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+			var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+			var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+			$("#workExperience").append(HTMLworkStart);
+			$(".work-entry:last").append(formattedWorkEmployer + formattedWorkTitle + formattedWorkDates + formattedWorkLocation + formattedWorkDescription);
+		};
+	} else {
+		console.log("No jobs! :o");
+	}
+}
+
 var projects = {
 	"projects" : [
 		{
@@ -210,22 +226,6 @@ function displayHeader() {
 		};
 	} else {
 		console.log("No skills! :o");
-	}
-}
-
-work.display = function() {
-	if (work.jobs.length > 0) {
-		for (job in work.jobs) {
-			var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-			var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-			var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-			var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-			var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-			$("#workExperience").append(HTMLworkStart);
-			$(".work-entry:last").append(formattedWorkEmployer + formattedWorkTitle + formattedWorkDates + formattedWorkLocation + formattedWorkDescription);
-		};
-	} else {
-		console.log("No jobs! :o");
 	}
 }
 
