@@ -190,7 +190,7 @@ function displayHeader() {
 	}
 }
 
-function displayWork() {
+work.display = function() {
 	if (work.jobs.length > 0) {
 		for (job in work.jobs) {
 			var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -207,7 +207,7 @@ function displayWork() {
 }
 
 displayHeader();
-displayWork();
+work.display();
 projects.display();
 
 $("#main").append(internationalizeButton);
