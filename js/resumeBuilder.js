@@ -166,11 +166,11 @@ projects.display = function() {
 			var formatted_HTMLprojectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
 			
 	
-			$("#projects").append(formatted_HTMLprojectStart)
-			$(".project-entry:last").append(formatted_HTMLprojectTitle + formatted_HTMLprojectDates + formatted_HTMLprojectDescription)
+			$("#projects").append(formatted_HTMLprojectStart);
+			$(".project-entry:last").append(formatted_HTMLprojectTitle + formatted_HTMLprojectDates + formatted_HTMLprojectDescription);
 			for (each in projects.projects[i].image) {
 				var formatted_HTMLprojectImage = HTMLprojectImage.replace("%data%", projects.projects[i].image[each]);
-				$(".project-entry:last").append(formatted_HTMLprojectImage)
+				$(".project-entry:last").append(formatted_HTMLprojectImage);
 				console.log(each);
 			}
 		}
